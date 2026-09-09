@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_3/pergunta.dart';
 import 'package:flutter_application_3/questoes.dart';
 
-class Janela2 extends StatelessWidget {
-  const Janela2({
-    super.key,
-  });
+import 'botao_resposta.dart';
+
+class Janela2 extends StatefulWidget {
+  const Janela2({super.key});
+
+  @override
+  State<Janela2> createState() => _Janela2State();
+}
+
+class _Janela2State extends State<Janela2> {
+  int perguntaAtual = 0;
 
   @override
   Widget build(BuildContext context) {
-    Pergunta teste1 = questoes[1];
+    Pergunta teste1 = questoes[perguntaAtual];
+
     return Scaffold(
       body: Column(
         children: [
@@ -27,35 +35,29 @@ class Janela2 extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(teste1.respostas[0]),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(teste1.respostas[1]),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(teste1.respostas[2]),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(teste1.respostas[3]),
-              ),
-            ],
-          ),
+          // vetor teste1.respostas;
+          ...teste1.Embaralha().map((item) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: BotaoReposta(
+                  cor: const Color.fromARGB(255, 224, 55, 47),
+                  callResposta: () {
+                    print('Acertou!');
+                    print('Item: $item');
+                    setState(() {
+                      if (perguntaAtual < questoes.length - 1) {
+                        perguntaAtual = perguntaAtual + 1;
+                      } else {
+                        perguntaAtual =
+                            0; // reinicia o ciclo ao fim das 5 questões
+                      }
+                    });
+
+                    print(perguntaAtual);
+                  },
+                  textoResposta: item),
+            );
+          }),
         ],
       ),
     );

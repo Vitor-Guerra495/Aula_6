@@ -1,13 +1,14 @@
-import 'package:flutter_application_3/pergunta.dart';
+import 'pergunta.dart';
 
 const questoes = [
-  Pergunta(
-      'Um carro percorre uma distância de 120 km em 2 horas. Qual é a sua velocidade média?',
-      ['50 km/h', '60 km/h', '70 km/h', '80 km/h']),
-  Pergunta(
-      'Uma força empurra um bloco de massa 5 kg com aceleração de 3 m/s². Qual é a força aplicada?',
-      ['8 N', '10 N', '15 N', '20 N']),
-  Pergunta(
-      'Qual é o peso na Terra de um objeto com massa de 4 kg, considerando g = 10 m/s²?',
-      ['14 N', '25 N', '40 N', '50 N'])
+  Pergunta('Qual é a unidade de força no SI?',
+      ['Newton', 'Joule', 'Watt', 'Pascal']),
+  Pergunta('Qual é a velocidade média se ando 10 m em 2 s?',
+      ['5 m/s', '20 m/s', '8 m/s', '2 m/s']),
+  Pergunta('O que mede a temperatura?',
+      ['Agitação molecular', 'Força', 'Massa', 'Volume']),
+  Pergunta('Qual é o valor aproximado da gravidade na Terra?',
+      ['10 m/s²', '5 m/s²', '20 m/s²', '1 m/s²']),
+  Pergunta('O som se propaga no vácuo?',
+      ['Não', 'Sim', 'Às vezes', 'Apenas no espaço']),
 ];

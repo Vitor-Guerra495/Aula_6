@@ -4,9 +4,9 @@ class Pergunta {
   final String texto;
   final List<String> respostas;
 
-  List<String> embaralha() {
-    final resFinal = List<String>.of(respostas);
-    resFinal.shuffle();
-    return resFinal;
+  List<String> Embaralha() {
+    var novaLista = List.of(respostas);
+    novaLista.shuffle();
+    return novaLista;
   }
 }
